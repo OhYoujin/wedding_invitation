@@ -49,12 +49,19 @@
 <body id="top">
     <div class="page-content">
         <div class="div">
-            <div class="ww-home-page" id="home">
+            <div class="ww-home-page-mobile" id="home">
                 <div class="ww-wedding-announcement d-flex justify-content-center" style="padding:0px; text-align: center;">
                     <img src="./images/main_top.png" id="home-image" style="max-width: 100%; height: : 100%; max-height: 100%;">
-                    <!-- <div id="home-image-div" class="col-md-6 col-md-offset-3" style="padding:0px; text-align: center;">
-                        <img src="./images/main_top.png" id="home-image" style="max-width: 100%; height: : 100%; max-height: 100%;">
-                    </div> -->
+                </div>
+            </div>
+            <div class="ww-home-page" id="home_desktop" style="display: none">
+                <div class="ww-wedding-announcement d-flex align-items-center justify-content-start">
+                    <div class="container ww-announcement-container">
+                        <p class="ww-couple-name ww-title" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000">용빈 & 유진</p>
+                        <p class="ww-couple-name ww-title" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000">결혼합니다.</p>
+                        <!-- <img class="img-fluid mt-1" src="images/laurel-1.png" alt="Heart" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000" /> -->
+                        <p class="h2 mt-5 ww-title" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000" data-aos-offset="10"><br>2021.12.12 일요일 낮 12시<br> 포항 라한호텔 그랜드블룸</p>
+                    </div>
                 </div>
             </div>
             <!--  <div class="col-md-6 col-md-offset-3" style="padding:0px;">
@@ -421,17 +428,23 @@
     let galleryTempDiv;
     let galleryTempInner;
 
+    const homeMobileDiv = document.getElementById('home');
+    const homeDesktopDiv = document.getElementById('home_desktop');
 
     // desktop 화면
     if (screen.width > 1080) {
-        homeImageElement.setAttribute('src', './images/home-img.JPG');
-        // homeImageDiv.className = 'div';
+        homeMobileDiv.setAttribute('style', 'display: none;')
+        homeDesktopDiv.setAttribute('style', 'display: block;')
+            // homeImageElement.setAttribute('src', './images/home-img.JPG');
+            // homeImageDiv.className = 'div';
         console.log('over 1080');
         // imageSize = '317px'
 
     } else {
-        // 모바일, 탭 화면
-        // imageSize = '100px'
+        homeMobileDiv.setAttribute('style', 'display: block;')
+        homeDesktopDiv.setAttribute('style', 'display: none;')
+            // 모바일, 탭 화면
+            // imageSize = '100px'
 
     }
 
